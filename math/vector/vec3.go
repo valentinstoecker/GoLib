@@ -78,7 +78,11 @@ func (v Vec3) Cross(w Vec3) Vec3 {
 
 // Normalize normalizes the Vec3 (sets v.Norm() = 1)
 func (v Vec3) Normalize() Vec3 {
-	return v.Mult(1 / v.Norm())
+	n := v.Norm()
+	if n == 0 {
+		return v
+	}
+	return v.Mult(1 / n)
 }
 
 func (v Vec3) String() string {
