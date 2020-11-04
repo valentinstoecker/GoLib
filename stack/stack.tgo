@@ -1,0 +1,37 @@
+package stack
+
+// Stack{{.Type}} a stack of {{.Type}}
+type Stack{{.Type}} struct {
+	data []{{.Type}}
+	size int
+}
+
+// Push pushes a {{.Type}} on the Stack
+func (s *Stack{{.Type}}) Push(v {{.Type}}) {
+	if s.size == len(s.data) {
+		s.data = append(s.data, v)
+	} else {
+		s.data[s.size] = v
+	}
+	s.size++
+}
+
+// Pop pops a {{.Type}} from the stack
+func (s *Stack{{.Type}}) Pop() (r {{.Type}}) {
+	if s.size == 0 {
+		return
+	}
+    s.size--
+    r = s.data[s.size]
+	return
+}
+
+// Size returns current size of the Stack
+func (s *Stack{{.Type}}) Size() int {
+	return s.size
+}
+
+// IsEmpty returns true if stack is empty
+func (s *Stack{{.Type}}) IsEmpty() bool {
+	return s.size == 0
+}

@@ -46,6 +46,7 @@ func (c Cap) Color(r Ray) color.Color {
 	return ColorDisters(c).Color(r)
 }
 
+//Dist -> Dist of Disters
 func (ds Disters) Dist(v vector.Vec3) float64 {
 	d := math.MaxFloat64
 	for _, cd := range ds {
